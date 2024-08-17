@@ -1,0 +1,54 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: rgb(32, 32, 32);
+	color: rgb(211, 210, 210);
+	text-align: center;
+	font-size: 1.15rem;
+}
+
+header * {
+	line-height: 0.8;
+}
+
+h1 {
+	color: rgb(233, 230, 230);
+}
+
+input,
+button {
+	font-size: 1.15rem;
+	color: rgb(0, 0, 0);
+	display: block;
+	padding: 0.75rem 1.25rem;
+	border-radius: 1.5rem;
+	border: 1px solid black;
+	background-color: rgb(224, 221, 221);
+	box-shadow: 0 6px 4px rgba(0, 0, 0, 0.462);
+	margin: 0.25rem;
+}
+
+input {
+	width: 10rem;
+}
+
+button {
+	background-color: #aaaacb;
+	cursor: pointer;
+	font-size: 1rem;
+}
+button:hover {
+	background-color: #bfbfd8;
+}
+
+section {
+	margin: 3rem 0;
+}
+
+#player p {
+	display: flex;
+	justify-content: center;
+}
