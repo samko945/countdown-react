@@ -23,25 +23,40 @@ button {
 	font-size: 1.15rem;
 	color: rgb(0, 0, 0);
 	display: block;
-	padding: 0.75rem 1.25rem;
-	border-radius: 1.5rem;
+	border-radius: 100vh;
 	border: 1px solid black;
-	background-color: rgb(224, 221, 221);
-	box-shadow: 0 6px 4px rgba(0, 0, 0, 0.462);
+	background-color: rgb(232, 232, 232);
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.853);
 	margin: 0.25rem;
+	transition: all 150ms ease;
 }
 
 input {
-	width: 10rem;
+	width: 12rem;
+	padding: 1rem 1.5rem;
+}
+
+input::placeholder {
+	color: rgba(0, 0, 0, 0.305);
+	transition: color 300ms ease;
+}
+input:focus::placeholder,
+input:hover::placeholder {
+	color: rgb(232, 232, 232);
 }
 
 button {
-	background-color: #aaaacb;
+	white-space: nowrap;
+	color: white;
+	background-color: #1e65e1;
 	cursor: pointer;
+	padding: 1rem 3rem;
 	font-size: 1rem;
 }
 button:hover {
-	background-color: #bfbfd8;
+	color: rgba(255, 255, 255, 0.924);
+	background-color: #216ef3;
+	box-shadow: 0 4px 8px rgb(0, 0, 0);
 }
 
 section {
@@ -51,4 +66,40 @@ section {
 #player p {
 	display: flex;
 	justify-content: center;
+}
+
+#challenges {
+	display: flex;
+	justify-content: center;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.challenge {
+	width: 30rem;
+	margin: 2rem;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 0.2rem;
+	background-color: rgb(232, 232, 232);
+}
+
+.challenge h2,
+.challenge p {
+	color: rgb(67, 67, 67);
+	margin: 0;
+}
+
+.challenge h2 {
+	color: rgb(183, 132, 230);
+}
+.challenge p {
+	color: rgb(109, 109, 109);
+}
+
+.challenge button {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.226);
+	border: none;
 }
