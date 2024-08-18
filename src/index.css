@@ -1,9 +1,9 @@
 :root {
 	--bg-dark: rgb(32, 32, 32);
 	--bg-light: rgb(232, 232, 232);
-	--shadow-dark: 2px 2px 4px rgba(0, 0, 0, 0.853);
-	--shadow-light: 0 2px 4px rgba(0, 0, 0, 0.226);
-	--color-primary: #1e65e1;
+	--shadow-dark: 0 2px 8px rgba(0, 0, 0, 0.853);
+	--shadow-light: 0 2px 4px rgba(0, 0, 0, 0.18);
+	--color-primary: #0073ff;
 	--boarder-radius-card: 0.2rem;
 }
 
@@ -33,7 +33,7 @@ input,
 button {
 	font-size: 1.15rem;
 	display: block;
-	border-radius: 100vh;
+	border-radius: 0.15rem;
 	border: none;
 	background: var(--bg-light);
 	box-shadow: var(--shadow-dark);
@@ -65,8 +65,8 @@ button {
 }
 button:hover {
 	color: rgba(255, 255, 255, 0.924);
-	filter: brightness(1.125);
-	box-shadow: 0 4px 8px rgb(0, 0, 0);
+	filter: brightness(1.25);
+	/* box-shadow: 0 4px 8px rgb(0, 0, 0); */
 }
 
 section {
@@ -95,10 +95,11 @@ section {
 	align-items: center;
 	border-radius: var(--boarder-radius-card);
 	background-color: var(--bg-light);
+	box-shadow: var(--shadow-dark);
 }
 
 .challenge h2 {
-	color: rgb(183, 132, 230);
+	color: var(--color-primary);
 }
 .challenge p {
 	color: rgb(109, 109, 109);
