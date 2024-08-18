@@ -1,17 +1,28 @@
+:root {
+	--bg-dark: rgb(32, 32, 32);
+	--bg-light: rgb(232, 232, 232);
+	--shadow-dark: 2px 2px 4px rgba(0, 0, 0, 0.853);
+	--shadow-light: 0 2px 4px rgba(0, 0, 0, 0.226);
+	--color-primary: #1e65e1;
+	--boarder-radius-card: 0.2rem;
+}
+
 * {
 	box-sizing: border-box;
+	margin: 0;
 }
 
 body {
 	font-family: sans-serif;
-	background-color: rgb(32, 32, 32);
+	background-color: var(--bg-dark);
 	color: rgb(211, 210, 210);
 	text-align: center;
 	font-size: 1.15rem;
 }
 
 header * {
-	line-height: 0.8;
+	/* margin-top: 2rem; */
+	line-height: 1.5;
 }
 
 h1 {
@@ -21,12 +32,11 @@ h1 {
 input,
 button {
 	font-size: 1.15rem;
-	color: rgb(0, 0, 0);
 	display: block;
 	border-radius: 100vh;
-	border: 1px solid black;
-	background-color: rgb(232, 232, 232);
-	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.853);
+	border: none;
+	background: var(--bg-light);
+	box-shadow: var(--shadow-dark);
 	margin: 0.25rem;
 	transition: all 150ms ease;
 }
@@ -42,20 +52,20 @@ input::placeholder {
 }
 input:focus::placeholder,
 input:hover::placeholder {
-	color: rgb(232, 232, 232);
+	color: var(--bg-light);
 }
 
 button {
 	white-space: nowrap;
 	color: white;
-	background-color: #1e65e1;
+	background: var(--color-primary);
 	cursor: pointer;
 	padding: 1rem 3rem;
 	font-size: 1rem;
 }
 button:hover {
 	color: rgba(255, 255, 255, 0.924);
-	background-color: #216ef3;
+	filter: brightness(1.125);
 	box-shadow: 0 4px 8px rgb(0, 0, 0);
 }
 
@@ -73,23 +83,18 @@ section {
 	justify-content: center;
 	max-width: 800px;
 	margin: 0 auto;
+	flex-wrap: wrap;
 }
 
 .challenge {
-	width: 30rem;
+	width: 20rem;
 	margin: 2rem;
 	padding: 2rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border-radius: 0.2rem;
-	background-color: rgb(232, 232, 232);
-}
-
-.challenge h2,
-.challenge p {
-	color: rgb(67, 67, 67);
-	margin: 0;
+	border-radius: var(--boarder-radius-card);
+	background-color: var(--bg-light);
 }
 
 .challenge h2 {
@@ -100,6 +105,26 @@ section {
 }
 
 .challenge button {
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.226);
+	box-shadow: var(--shadow-light);
+}
+
+.result-modal {
+	margin: 0 auto;
+	margin-top: 15rem;
+	padding: 2rem;
 	border: none;
+	border-radius: var(--boarder-radius-card);
+}
+
+.result-modal form {
+	display: flex;
+	justify-content: center;
+}
+
+.result-modal form button {
+	box-shadow: var(--shadow-light);
+}
+
+.result-modal::backdrop {
+	background-color: rgba(0, 0, 0, 0.9);
 }
