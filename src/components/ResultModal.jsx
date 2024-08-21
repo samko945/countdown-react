@@ -1,4 +1,5 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
+import { createPortal } from "react-dom";
 // wrap the component - pass it to the forwardRef function
 // the component function will now have a second parameter "ref" which forwards the value of the component's "ref" prop key.
 // <ResultModal ref={dialog} targetTime={targetTime} result="lost" />
@@ -19,7 +20,8 @@ export default forwardRef(function ResultModal({ targetTime, remainingTime, onRe
 			},
 		};
 	});
-	return (
+	// the component that is to be portaled is param1, and the ref or element in the DOM is the param2
+	return createPortal(
 		<dialog ref={dialog} className="result-modal" onClose={onReset}>
 			{userLost && <h2>You lost</h2>}
 			{!userLost && <h2>Your Score: {score}</h2>}
@@ -32,6 +34,7 @@ export default forwardRef(function ResultModal({ targetTime, remainingTime, onRe
 			<form method="dialog" onSubmit={onReset}>
 				<button>Close</button>
 			</form>
-		</dialog>
+		</dialog>,
+		document.querySelector("#modal")
 	);
 });
