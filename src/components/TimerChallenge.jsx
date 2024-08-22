@@ -10,6 +10,7 @@ export default function TimerChallenge({ title, targetTime }) {
 	const timer = useRef();
 	const dialog = useRef();
 
+	const [bestTime, setBestTime] = useState();
 	const [timeRemaining, setTimeRemaining] = useState(targetTime * 1000);
 	const timerIsActive = timeRemaining > 0 && timeRemaining < targetTime * 1000;
 
@@ -30,6 +31,15 @@ export default function TimerChallenge({ title, targetTime }) {
 	}
 
 	function handleReset() {
+		setBestTime((prev) => {
+			const currentScore = Math.round((1 - timeRemaining / (targetTime * 1000)) * 100);
+			if (!prev) return currentScore;
+			if (currentScore > prev) {
+				return currentScore;
+			} else {
+				return prev;
+			}
+		});
 		setTimeRemaining(targetTime * 1000);
 	}
 
@@ -46,7 +56,8 @@ export default function TimerChallenge({ title, targetTime }) {
 						{timerIsActive ? "Stop" : "Start Challenge"}
 					</button>
 				</p>
-				<p className={timerIsActive ? "active" : undefined}>Time is running... / Timer inactive</p>
+				{/* <p className={timerIsActive ? "active" : undefined}>Time is running... / Timer inactive</p> */}
+				<p>{bestTime ? `Best Score: ${bestTime}` : "Not started."}</p>
 			</section>
 		</>
 	);
