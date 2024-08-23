@@ -32,9 +32,11 @@ export default function TimerChallenge({ title, targetTime }) {
 
 	function handleReset() {
 		setBestTime((prev) => {
+			// if the person runs out of time, either keep the prev higher value or string 0 truthy value to render score 0.
+			if (timeRemaining === 0) return prev ?? "0";
 			const currentScore = Math.round((1 - timeRemaining / (targetTime * 1000)) * 100);
 			if (!prev) return currentScore;
-			if (currentScore > prev) {
+			if (currentScore > Number(prev)) {
 				return currentScore;
 			} else {
 				return prev;
